@@ -1,16 +1,15 @@
-import { useState } from 'react'
-import { Plus, ChevronDown, Settings } from 'lucide-react'
-import { useAppStore, useActiveChild } from '@/store/useAppStore'
-import { getInitials, calculateAge } from '@/lib/utils'
 import { AddChildModal } from '@/components/forms/AddChildModal'
 import { ManageChildModal } from '@/components/forms/ManageChildModal'
+import { calculateAge, getInitials } from '@/lib/utils'
+import { useActiveChild, useAppStore } from '@/store/useAppStore'
+import { Plus, Settings } from 'lucide-react'
+import { useState } from 'react'
 
 export function ChildSelector() {
   const { children, setActiveChild } = useAppStore()
   const activeChild = useActiveChild()
   const [addOpen, setAddOpen] = useState(false)
   const [manageOpen, setManageOpen] = useState(false)
-  const [dropdownOpen, setDropdownOpen] = useState(false)
 
   return (
     <div className="flex items-center gap-2 flex-wrap">
@@ -21,13 +20,11 @@ export function ChildSelector() {
             key={child.id}
             onClick={() => {
               setActiveChild(child.id)
-              setDropdownOpen(false)
             }}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-full border text-sm font-semibold font-body transition-all duration-200 ${
-              activeChild?.id === child.id
+            className={`flex items-center gap-2 px-3 py-1.5 rounded-full border text-sm font-semibold font-body transition-all duration-200 ${activeChild?.id === child.id
                 ? 'text-white border-transparent shadow-md'
                 : 'bg-white border-brand-200 text-brand-700 hover:bg-brand-50'
-            }`}
+              }`}
             style={
               activeChild?.id === child.id
                 ? { backgroundColor: child.avatarColor, borderColor: child.avatarColor }

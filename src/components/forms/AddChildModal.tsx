@@ -1,8 +1,8 @@
-import { useState } from 'react'
-import { X, Baby } from 'lucide-react'
-import { useAppStore } from '@/store/useAppStore'
-import { AVATAR_COLORS } from '@/lib/utils'
 import { Modal } from '@/components/ui/Modal'
+import { AVATAR_COLORS } from '@/lib/utils'
+import { useAppStore } from '@/store/useAppStore'
+import { Baby, X } from 'lucide-react'
+import { useState } from 'react'
 
 interface Props {
   open: boolean
@@ -95,7 +95,6 @@ export function AddChildModal({ open, onClose }: Props) {
                   className="w-8 h-8 rounded-full transition-transform duration-150 hover:scale-110 focus:outline-none"
                   style={{
                     backgroundColor: color,
-                    ring: selectedColor === color ? `3px solid ${color}` : undefined,
                     outline: selectedColor === color ? `2px solid white` : undefined,
                     boxShadow: selectedColor === color ? `0 0 0 2px white, 0 0 0 4px ${color}` : undefined,
                   }}

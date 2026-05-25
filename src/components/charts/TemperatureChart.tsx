@@ -1,17 +1,15 @@
+import { formatDateTime, formatShortDateTime, temperatureChartColor } from '@/lib/utils'
+import type { MedicationRecord, Record, TemperatureRecord } from '@/types'
 import {
+  CartesianGrid,
   ComposedChart,
   Line,
   ReferenceLine,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
   ResponsiveContainer,
-  Scatter,
-  Cell,
+  Tooltip,
+  XAxis,
+  YAxis
 } from 'recharts'
-import { formatShortDateTime, formatDateTime, temperatureChartColor } from '@/lib/utils'
-import type { Record, TemperatureRecord, MedicationRecord } from '@/types'
 
 interface Props {
   records: Record[]
@@ -185,11 +183,10 @@ export function TemperatureChart({ records }: Props) {
             {medRecords.map((med) => (
               <span
                 key={med.id}
-                className={`badge ${
-                  med.medication === 'Benuron'
+                className={`badge ${med.medication === 'Benuron'
                     ? 'bg-sky-50 text-sky-700 border border-sky-200'
                     : 'bg-amber-50 text-amber-700 border border-amber-200'
-                }`}
+                  }`}
               >
                 {med.medication === 'Benuron' ? '🔵' : '🟡'} {med.medication}
                 {med.dosage && ` ${med.dosage}`}
