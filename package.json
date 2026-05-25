@@ -3,6 +3,11 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "author": {
+    "email": "andrademarcelo98@gmail.com",
+    "name": "Marcelo Andrade",
+    "url": "https://github.com/marceloandrade12"
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
